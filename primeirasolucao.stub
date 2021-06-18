@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define tamanho 18
+
+typedef struct Pauta{
+    int id;
+    int ano;
+    char *disciplina;
+}Pauta;
+
+typedef struct Estudante
+{
+    int id;
+    char *nome;
+    char *apelido;
+    int nivel;
+    Pauta pauta;
+}Estudante;
+
+void ordenarLista(int lista[], int tamanhoDaLista){
+    int i,j,temp;
+    for ( i = 0; i < tamanhoDaLista; i++)
+    {
+        for ( j = i; j < tamanhoDaLista ; j++)
+        {
+            if (lista[j] < lista[i])
+            {
+                temp = lista[i];
+                lista[i] = lista[j];
+                lista[j]  = temp;
+            }
+        }
+    }
+}
+
+void imprimirlista(int lista[], int tamanhoDaLista){
+int i;
+ for ( i = 0; i < tamanhoDaLista; i++)
+    {
+        printf("%i, ",lista[i]);
+    }
+}
+
+int main(){
+    int i,notas[] = {18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1};
+    Estudante estudantes[tamanho];
+    
+    imprimirlista(notas,tamanho);
+    ordenarLista(notas,tamanho);
+    printf("\n");
+    imprimirlista(notas,tamanho);
+    return 9;
+}
+
+
+
+
+
+
+
